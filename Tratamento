@@ -1,0 +1,28 @@
+import java.util.Scanner;
+
+public class Main {
+    public static void main(String[] args) {
+        Scanner scanner = new Scanner(System.in);
+
+        try {
+            System.out.print("Digite o numerador: ");
+            int numerador = Integer.parseInt(scanner.nextLine());
+
+            System.out.print("Digite o denominador: ");
+            int denominador = Integer.parseInt(scanner.nextLine());
+
+            if (denominador == 0) {
+                throw new ArithmeticException("Divisão por zero não é permitida.");
+            }
+
+            int resultado = numerador / denominador;
+            System.out.println("O resultado da divisão é: " + resultado);
+        } catch (NumberFormatException e) {
+            System.out.println("Erro: Você não digitou um número inteiro válido.");
+        } catch (ArithmeticException e) {
+            System.out.println("Erro: " + e.getMessage());
+        } finally {
+            scanner.close();
+        }
+    }
+}
